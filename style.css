@@ -16,7 +16,7 @@
 
 .light {
   --text-color: black;
-  --bg-url: url(./assets/assets/peaceful-mountain-panorama-landscape-in-monochromatic-flat-illustration-vector.jpg);
+  --bg-url: url(./assets/assets/vector-art-nature-trees-grass.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -26,6 +26,7 @@
 
 body {
   background: var(--bg-url) no-repeat center/ cover;
+  height: 100vh;
 }
 
 body * {
@@ -34,9 +35,9 @@ body * {
 }
 
 #container {
-  /*height: 500px;
-  width: 500px;
-  border: 1px solid cyan;*/
+  width: 100%;
+  max-width: 500px;
+  /*border: 1px solid cyan;*/
   margin: 56px auto 0px;
   padding: 0px 24px;
 }
@@ -76,11 +77,17 @@ body * {
   right: -10%;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  left: -10%;
-  right: initial;
+  /*left: -10%;
+  right: initial;*/
+  animation: slide-in 0.2s forwards;
 }
 
 #switch span {
@@ -146,4 +153,22 @@ ul li a:hover {
 
 #footer {
   padding: 24px;
+}
+
+@keyframes slide-in {
+  from {
+    right: 50%;
+  }
+  to {
+    left: -10%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: -10%;
+  }
+  to {
+    right: 50%;
+  }
 }
